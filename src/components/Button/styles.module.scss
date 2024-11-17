@@ -1,0 +1,5 @@
+@import '@styles/mixins.module.scss';
+@import '@styles/variables.module.scss';
+.btn{
+    @include btn(176px, 42px,3px,$primary_color )
+}

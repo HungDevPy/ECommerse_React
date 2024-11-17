@@ -1,0 +1,54 @@
+@import '@styles/mixins.module.scss';
+@import '@styles/variables.module.scss';
+.container{
+    @include flex_box_cutom(center, center,0px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.containerHeader{
+    width: 1250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+.containerBox{
+    @include flex_box_cutom(center, center,20px);
+}
+.containerBoxicon{
+    @include flex_box_cutom(center, center,10px);
+}
+.containerMenu{
+    @include flex_box_cutom(center, center,40px);
+
+}
+.boxIcon{
+    @include radius_common(50%);
+    @include flex_box_cutom(center, center,0px);
+    background-color: $primary_color;
+    width: 26px;
+    height: 26px;
+}
+.menu{
+    cursor: pointer;
+    padding-top: 9px;
+    font-size: 15px;
+    color: $primary_color;
+}
+.menu:hover::after{
+    transform: scale(1);
+    opacity: 1;
+}
+.menu::after{
+    content: "";
+    display: block;
+    height: 3px;
+    background-color: $primary_color;
+    transform-origin: right;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 300ms,opacity 300ms;
+    margin-top: 6px;
+}
