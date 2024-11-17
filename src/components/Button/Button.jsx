@@ -1,12 +1,10 @@
 import styles from './styles.module.scss';
 
-function Button({content}) {
-  const {btn} = styles;
-  return (
-    <div className={btn}>
-        <Button>{content}</Button>
-    </div>
-  )
+function MyButton({ content }) {
+    const { btn } = styles;
+    return (
+        <button className={btn}>{content}</button>
+    );
 }
 
-export default Button;
+export default MyButton;

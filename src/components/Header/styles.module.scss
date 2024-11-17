@@ -20,6 +20,10 @@
 .containerBoxicon{
     @include flex_box_cutom(center, center,10px);
 }
+.containerBoxicon img{
+    width: 18px;
+    height: 18px;
+}
 .containerMenu{
     @include flex_box_cutom(center, center,40px);
 
