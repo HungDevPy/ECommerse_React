@@ -1,0 +1,28 @@
+@import "@styles/variables.module.scss";
+@import "@styles/mixins.module.scss";
+.container{
+    @include flex_box_cutom(space-between, center, 10px);
+
+    background-color: $primary_color;
+    margin-top: -75px;
+    padding: 20px 50px;
+    position: relative;
+}
+.containerCard{
+    @include flex_box_cutom(center, center, 18px);
+
+    width: 280px;
+    height: 104px;
+}
+.containerContent{
+    @include flex_box_cutom(center, flex-start, 8px);
+    flex-direction: column;
+    font-weight: 300;
+    color: $white_color;
+    .content{
+        font-size: 17px;
+    }
+    .des{
+        font-size: 16px;
+    }
+}
