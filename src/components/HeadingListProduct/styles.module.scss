@@ -1,0 +1,12 @@
+@import "@styles/mixins.module.scss";
+@import "@styles/variables.module.scss";
+
+
+.container{
+    margin: 50px 0px;
+    @include flex_box_cutom(space-between, center, 10px);
+}
+
+.containerItems{
+    @include flex_box_cutom(center, center, 10px);
+}
