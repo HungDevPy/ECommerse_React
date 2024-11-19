@@ -1,0 +1,29 @@
+@import "@styles/variables.module.scss";
+@import "@styles/mixins.module.scss";
+
+.container{
+    @include flex_box_cutom(space-between, center, 0px);
+    margin-top: 100px;
+}
+.title{
+    font-size: 35px;
+    font-weight: 400;
+    color: $third_color;
+    text-transform: capitalize;
+    text-align: center;
+}
+.des{
+    font-size: 16px;
+    color: $third_color;
+    text-align: center;
+    font-weight: 300;
+    width: 460px;
+    line-height: 20px;
+}
+.button{
+    text-align: center;
+}
+.boxImg{
+    @include flex_box_cutom(center, center, 0px);
+    width: 100%;
+}

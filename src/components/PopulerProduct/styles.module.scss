@@ -1,0 +1,9 @@
+@import "@styles/variables.module.scss";
+@import "@styles/mixins.module.scss";
+
+.container{
+    @include flex_box_cutom(space-between, center, 10px);
+
+    margin-top: 15px;
+    flex-wrap: wrap;
+}

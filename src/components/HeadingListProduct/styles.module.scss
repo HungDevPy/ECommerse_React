@@ -3,7 +3,7 @@
 
 
 .container{
-    margin: 50px 0px;
+    margin-top: 40px;
     @include flex_box_cutom(space-between, center, 10px);
 }
 
