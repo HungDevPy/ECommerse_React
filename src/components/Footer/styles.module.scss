@@ -1,0 +1,27 @@
+@import "@styles/variables.module.scss";
+@import "@styles/mixins.module.scss";
+
+
+.containner{
+    @include flex_box_cutom(center, center, 40px);
+
+    flex-direction: column  ;
+    background: #363636;
+    margin-top: 100px;
+    color: $white_color;
+    padding: 50px 0;
+
+    .boxNav{
+        @include flex_box_cutom(center, center, 50px);
+        
+        :hover{
+            cursor: pointer;
+            opacity: 0.7;
+        }
+    }
+
+    .paypay{
+        @include flex_box_cutom(center, center, 10px);
+        flex-direction: column;
+    }
+}

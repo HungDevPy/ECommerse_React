@@ -1,15 +1,10 @@
 import MyButton from '@components/Button/Button';
 import styles from './styles.module.scss';
-import { useEffect } from 'react';
-import usetranslateX from '@components/SaleHomePage/translateXimages';
+import usetranslateXIamge from '@/Hook/useTranslateXimage';
 
 function SaleHomePage() {
-    const { container, title, des, button, boxImg } = styles;
-    const {translateXPosition,handleTranslateX,scrollPosition} = usetranslateX();
-    
-    useEffect(() => {
-        handleTranslateX();
-    }, [scrollPosition]);
+    const { container, title, des, button, boxImg,box } = styles;
+    const { translateXPosition } = usetranslateXIamge();
 
     return (
         <div className={container}>
@@ -25,7 +20,7 @@ function SaleHomePage() {
                     alt=''
                 />
             </div>
-            <div>
+            <div className={box} >
                 <h2 className={title}>Sale of the year</h2>
                 <p className={des}>
                     Libero sed faucibus facilisis fermentum. Est nibh sed massa
@@ -42,6 +37,7 @@ function SaleHomePage() {
                     transition: 'transform 0.6s ease',
                 }}
             >
+            
                 <img
                     src='https://xstore.8theme.com/elementor2/marseille04/wp-content/uploads/sites/2/2022/12/Image_2.jpeg'
                     alt=''
