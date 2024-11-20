@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import usetranslateXIamge from '@/Hook/useTranslateXimage';
 
 function SaleHomePage() {
-    const { container, title, des, button, boxImg,box } = styles;
+    const { container, title, des, button, boxImg} = styles;
     const { translateXPosition } = usetranslateXIamge();
 
     return (
@@ -20,7 +20,7 @@ function SaleHomePage() {
                     alt=''
                 />
             </div>
-            <div className={box} >
+            <div >
                 <h2 className={title}>Sale of the year</h2>
                 <p className={des}>
                     Libero sed faucibus facilisis fermentum. Est nibh sed massa

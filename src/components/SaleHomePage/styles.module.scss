@@ -2,7 +2,7 @@
 @import "@styles/mixins.module.scss";
 
 .container{
-    @include flex_box_cutom(space-between, center, 0px);
+    @include flex_box_cutom(center, center, 0px);
     margin-top: 100px;
 }
 .container .box{

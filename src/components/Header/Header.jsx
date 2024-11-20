@@ -7,8 +7,9 @@ import raload from '@icons/svg/reload.svg';
 import heart from '@icons/svg/heart.svg';
 import cart from '@icons/svg/cart.svg';
 import useScrollHeading from '@/Hook/useScrollHeading';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import classNames from 'classnames';
+import { SideBarContext } from '@/contexts/SideBarprovider';
 function MyHeader() {
     const {
         containerBoxicon,
@@ -22,6 +23,9 @@ function MyHeader() {
 
     const  {scrollPosition} = useScrollHeading();
     const [fixedPostion, setFixedPostion] = useState(false);
+
+    const {isOpen,setIsOpen} =useContext(SideBarContext); 
+    console.log(isOpen);
 
     useEffect(() => {
         setFixedPostion(scrollPosition> 80? true : false);
@@ -43,7 +47,7 @@ function MyHeader() {
                     <div className={containerMenu}>
                         {dataMenus.slice(0, 3).map((item) => {
                             return (
-                                <Menu content={item.content} href={item.href} />
+                                <Menu content={item.content} href={item.href}/>
                             );
                         })}
                     </div>
@@ -62,7 +66,7 @@ function MyHeader() {
                     <div className={containerMenu}>
                         {dataMenus.slice(3, dataMenus.length).map((item) => {
                             return (
-                                <Menu content={item.content} href={item.href} />
+                                <Menu content={item.content} href={item.href} setIsOpen={setIsOpen}  />
                             );
                         })}
                     </div>
