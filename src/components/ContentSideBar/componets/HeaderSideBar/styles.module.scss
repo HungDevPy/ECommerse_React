@@ -1,0 +1,12 @@
+@import '@styles/mixins.module.scss';
+
+.container{
+    @include flex_box_cutom(center, center, px);
+    flex-direction: column;
+
+    .boxTitle{
+        font-size: 17px;
+        margin-top: 10px;
+    }
+
+}

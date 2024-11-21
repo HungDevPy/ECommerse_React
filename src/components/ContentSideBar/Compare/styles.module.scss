@@ -1,0 +1,11 @@
+@import "@styles/mixins.module.scss";
+
+.container{
+    @include flex_box_cutom(space-between, space-between, 0px);
+    padding: 30px;
+    height: 95vh;
+    flex-direction: column;
+    .boxConten{
+
+    }
+}

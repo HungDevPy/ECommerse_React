@@ -1,0 +1,19 @@
+@import "@styles/mixins.module.scss";
+
+.container{
+    @include flex_box_cutom(space-between,unset,0px);
+    flex-direction: column;
+    padding: 30px ;
+    height: 95vh;
+    .boxContent{
+
+    }
+    .boxBtn{
+        @include flex_box_cutom(center,center,10px);
+        flex-direction: column;
+    }
+    .boxSub{
+        @include flex_box_cutom(space-between,center,0px);
+        color: #989797e9;
+    }
+}
