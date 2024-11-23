@@ -5,12 +5,14 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useContext, useState } from 'react';
 import { ToastContext } from '@/contexts/ToastProvider';
+import { register, signIn } from '@/apis/authService';
+import Cookies from 'js-cookie';
 
 function Login() {
     const { container, title, boxRememberMe, lostPw } = styles;
     const [isRegister, setIsRegister] = useState(false);
     const { toast } = useContext(ToastContext);
-
+    const [isLoading, setisLoading] = useState(false);
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -33,10 +35,34 @@ function Login() {
                     .required('Confirm Password is required'),
             }),
         }),
-        onSubmit: (values) => {
-            // Trigger toast success only on successful login/signup
-            toast.success(isRegister ? 'Registration Successful' : 'Login Successful');
-            console.log(values); // You can replace this with an actual submission request
+        onSubmit: async (values) => {
+            const {email:username, password} = values;
+            if(isLoading) return;
+            setisLoading(true);
+
+            if(isRegister){
+                await register({username, password}).then((res) =>{
+                    console.log(res);
+                    toast.success(res.message);
+                    setisLoading(false);
+                }).catch((err) => {
+                    console.error('Registration error:', err);
+                    toast.error(err.response.data.message);
+                    setisLoading(false);
+                });
+            }
+
+            if(!isRegister){
+                await signIn({username,password}).then((res) => {
+                    setisLoading(false);
+                    const {id, token, refreshToken} = res.data;
+                    Cookies.set('token', token);
+                    Cookies.set('refreshToken', refreshToken);
+
+                }).catch((err) => {
+                    setisLoading(false);
+                });
+            }
         }
     });
 
@@ -90,7 +116,7 @@ function Login() {
                 )}
 
                 <Button
-                    content={isRegister ? 'REGISTER' : 'LOGIN'}
+                    content={isLoading ? 'IS LOADING...' :isRegister ? 'REGISTER' : 'LOGIN'}
                     type="submit"
                     style={{ width: '100%' }}
                 />
