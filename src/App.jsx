@@ -4,10 +4,12 @@ import routers from '@/routers/routers';
 import { SideBarProvider } from '@/contexts/SideBarprovider';
 import SideBar from '@components/SideBar/SideBar';
 import { ToastProvider } from '@/contexts/ToastProvider';
+import { StoreProvider } from '@/contexts/storeProvider';
 
 function App() {
     return (
-        <ToastProvider>
+        <StoreProvider>
+            <ToastProvider>
             <SideBarProvider>
                 <SideBar />
                 <BrowserRouter>
@@ -27,6 +29,7 @@ function App() {
                 </BrowserRouter>
             </SideBarProvider>
         </ToastProvider>
+        </StoreProvider>
     );
 }
 

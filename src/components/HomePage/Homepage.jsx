@@ -15,7 +15,6 @@ function Homepage() {
             setlistProduct(res.contents);
         });
     }, []);
-    console.log(listProduct, "listProduct");
     return (
         <div>
             <div>
