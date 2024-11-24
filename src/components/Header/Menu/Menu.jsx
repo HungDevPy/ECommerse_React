@@ -3,22 +3,22 @@ import styles from '../styles.module.scss';
 import { SideBarContext } from '@/contexts/SideBarprovider';
 import { StoreContext } from '@/contexts/storeProvider';
 import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 function Menu({ content, href}) {
-    const { menu,subMenu } = styles;
+    const { menu,subMenu,listSub,itemsSub } = styles;
     const { setIsOpen,setType} =useContext(SideBarContext);
     const {userInfor,handleLogout} =useContext(StoreContext);
-
+    const navigate =useNavigate();
     const [isShowSubMenu, setIsShowSubMenu] = useState(false);
     const handleClickShowLogin = () => {
         if(content === 'Sign In' && !userInfor){
             setType('login');
             setIsOpen(true);
         }
-        // else if(content === 'compare'){
-        //     setType('compare');
-        //     setIsOpen(true);
-        // }
+        if(content ==='Our Shop'){
+            navigate('/shop');
+        }
     };
 
     const handleRenderText =(content) =>{
@@ -38,10 +38,10 @@ function Menu({ content, href}) {
         <div className={menu} onMouseEnter={handleHover} onClick={handleClickShowLogin}>
             {handleRenderText(content)}
             {isShowSubMenu && <div onMouseLeave={() => setIsShowSubMenu(false)} className={subMenu}>
-                <ul>
-                    <li>Profile</li>
-                    <li onClick={handleLogout}>Log out</li>
-                </ul>
+                <div className={listSub}>
+                    <div className={itemsSub}>Profile</div>
+                    <div className={itemsSub} onClick={handleLogout}>Log out</div>
+                </div>
             </div>
             }
         </div>

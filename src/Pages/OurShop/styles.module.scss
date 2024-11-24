@@ -1,0 +1,32 @@
+@import "@styles/variables.module.scss";
+@import "@styles/mixins.module.scss";
+
+
+.container{
+    padding-top: 83px;
+    
+    .functionBox{
+        @include flex_box_cutom(space-between, center,0px);
+        color: $secondary_color;
+        font-size: 14px;
+        font-weight: 300;
+
+        .special{
+            color: $primary_color;
+            font-weight: 500;
+        }
+
+        .outbanner{
+            cursor: pointer;
+        }
+    }
+}
+.containerBanner{
+    background-image: url("https://xstore.8theme.com/elementor2/marseille04/wp-content/uploads/sites/2/2022/12/Background.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 279px;
+    width: 100%;
+    margin-top: 10px;
+}
