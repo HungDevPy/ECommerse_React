@@ -29,4 +29,54 @@
     height: 279px;
     width: 100%;
     margin-top: 10px;
+
+    .boxContainer{
+        @include flex_box_cutom(center, center, 30px);
+        flex-direction: column;
+        padding: 65px 0 55px 0;
+        text-align: center;
+        
+
+        .boxTime{
+            @include flex_box_cutom(space-between, center, 10px);
+
+            &>span{
+                margin-top: 0px;
+                border: 1px solid #e1e1e1;
+            }
+        }
+    }
+    .title{
+        font-size: 28px;
+        font-weight: 400;
+        text-transform: capitalize;
+    }
+}
+.containerFillter{
+    @include flex_box_cutom(space-between, center, 20px);
+    color: $secondary_color;
+    padding: 20px 0;
+
+    .fillterLeft{
+        @include flex_box_cutom(center, center, 20px);
+        
+
+        .boxLeft{
+            @include flex_box_cutom(center, center, 10px);
+        }
+        .selectBox{
+            border: 1px solid #e1e1e1;
+            padding: 5px;
+            color: $secondary_color;
+            font-size: 14px;
+            outline: none;
+        }
+        .selectBox.sort{
+            width: 275px;
+        }
+        .selectBox.show{
+            width: 83px;
+        }
+    }
+    
 }

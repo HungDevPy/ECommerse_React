@@ -3,6 +3,9 @@ import MainLayout from "@components/Layout/Layout"
 import style from "./styles.module.scss"
 import { useNavigate } from "react-router-dom";
 import Banner from "@pages/OurShop/components/Banner";
+import { OurShopProvider } from "@contexts/ourshopProvider";
+import Fillter from "@pages/OurShop/components/Fillter";
+
 
 
 function OurShop() {
@@ -11,7 +14,10 @@ function OurShop() {
     const handleBackPreviousPage =() =>{
         navigate(-1);
     };
-  return <>
+
+    
+
+  return <OurShopProvider>
     <MyHeader />
     <MainLayout>
         <div className={container}>
@@ -24,9 +30,12 @@ function OurShop() {
             </div>
             </div>
             <Banner />
+            <div>
+                <Fillter/>
+            </div>
         </div>
     </MainLayout>
-  </>
+  </OurShopProvider>
 }
 
 export default OurShop
