@@ -13,6 +13,7 @@ function PopulerProduct({ data }) {
                             preSrc={item.images[1]}
                             name={item.name}
                             price={item.price}
+                            detail={item}
                         />
                     );
                 })}

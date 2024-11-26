@@ -6,12 +6,11 @@ import Productitems from "@components/Productitems/Productitems";
 
 function ListProduct() {
 
-    const {products} =useContext(OurShopContext);
+    const {products,isShow} =useContext(OurShopContext);
     const {containerProduct} = styles;
-    console.log(products);
   return (
     <MainLayout>
-        <div className={containerProduct}>
+        <div className={isShow?containerProduct:''}>
         {products.map((item) => {
                     return (
                         <Productitems
@@ -19,6 +18,8 @@ function ListProduct() {
                             preSrc={item.images[1]}
                             name={item.name}
                             price={item.price}
+                            detail={item}
+                            isHomepage={false}
                         />
                     );
                 })}

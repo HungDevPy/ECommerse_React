@@ -5,7 +5,6 @@ import Productitems from '@components/Productitems/Productitems';
 
 function HeadingListProduct({ data }) {
     const { container, containerItems } = styles;
-
     return (
         <MainLayout>
             <div className={container}>
@@ -20,6 +19,7 @@ function HeadingListProduct({ data }) {
                                 preSrc={item.images[1]} // Correctly access item.images
                                 name={item.name} // Correctly access item.name
                                 price={item.price} // Correctly access item.price
+                                detail={item} // Correctly access item.detail
                             />
                         );
                     })}

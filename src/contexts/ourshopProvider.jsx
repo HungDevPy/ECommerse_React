@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
-import { getProduct } from '@/apis/productsService';
+import { getProductOutShop } from '@/apis/productsService';
 
 export const OurShopContext = createContext();
 
@@ -40,7 +40,7 @@ export const OurShopProvider = ({ children }) => {
             page: 1,
             limit: show,
         };
-        getProduct(query).then(res =>{
+        getProductOutShop(query).then(res =>{
             console.log(res);
             setProducts(res.contents);
         }).catch(err =>{

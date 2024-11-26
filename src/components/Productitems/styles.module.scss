@@ -60,3 +60,46 @@
     color: $third_color;
     font-weight: 400;
 }
+.boxContent{
+    @include flex_box_cutom(center, unset,0px);
+}
+.boxSize{
+    @include flex_box_cutom(center, center,0px);
+    gap: 10px;
+
+    .size{
+        border: 1px solid #e1e1e1;
+        padding: 4px 6px;
+        align-items: center;
+        font-size: 10px;
+        cursor: pointer;
+        &:hover{
+            border: 1px solid $primary_color;
+            transition: border 500ms;
+        }
+
+    }
+
+}
+.textCenter{
+    text-align: center;
+}
+.boxBtn{
+    margin: 10px auto;
+    width: 120px;
+}
+.containerItem{
+    @include flex_box_cutom(flex-start,center ,20px);
+    margin-top: 10px;
+    .boxContent{
+        @include flex_box_cutom(flex-start,flex-start,20px);
+        flex-direction: column;
+    }
+    .leftBtn{
+        margin: 0px;
+    }
+    .largImg{
+        width: 430px;
+
+    }
+}

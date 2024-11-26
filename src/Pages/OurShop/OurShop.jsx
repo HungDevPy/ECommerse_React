@@ -6,6 +6,7 @@ import Banner from "@pages/OurShop/components/Banner";
 import { OurShopProvider } from "@contexts/ourshopProvider";
 import Fillter from "@pages/OurShop/components/Fillter";
 import ListProduct from "@pages/OurShop/components/ListProduct";
+import MyFooter from "@components/Footer/Footer";
 
 
 
@@ -37,6 +38,7 @@ function OurShop() {
             </div>
         </div>
     </MainLayout>
+    <MyFooter/>
   </OurShopProvider>
 }
 
