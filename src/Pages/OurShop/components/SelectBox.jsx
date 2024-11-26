@@ -1,6 +1,9 @@
 
+import styles from "../styles.module.scss";
+
 function SelectBox({options, getvalue,type}) {;
-  return <select onChange={(e) => getvalue(e.target.value,type)}>
+  const {selectBox} = styles;
+  return <select className={selectBox} onChange={(e) => getvalue(e.target.value,type)}>
     {
         options.map((option)=>{
             return <option key={option.value} value={option.value}>{option.label}</option>

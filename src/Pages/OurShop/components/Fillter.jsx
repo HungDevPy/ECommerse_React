@@ -1,7 +1,6 @@
 import { BsGrid3X3Gap } from "react-icons/bs";
 import { CiCircleList } from "react-icons/ci";
 import styles from "../styles.module.scss";
-import cls from "classnames";
 import { useContext } from "react";
 import { OurShopContext } from "@contexts/ourshopProvider";
 import SelectBox from "@pages/OurShop/components/selectBox";

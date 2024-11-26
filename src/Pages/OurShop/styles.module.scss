@@ -80,3 +80,9 @@
     }
     
 }
+.containerProduct{
+    @include flex_box_cutom(space-between, center, 10px);
+    flex-wrap: wrap;
+    margin-top: 10px;
+
+}
