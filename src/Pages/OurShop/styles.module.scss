@@ -1,6 +1,20 @@
 @import "@styles/variables.module.scss";
 @import "@styles/mixins.module.scss";
 
+.sessionListProduct{
+    min-height: 800px;
+}
+.loading{
+    animation: loading 1s linear infinite;
+    @keyframes loading {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+}
 
 .container{
     padding-top: 83px;
@@ -81,7 +95,7 @@
     
 }
 .containerProduct{
-    @include flex_box_cutom(space-between, center, 10px);
+    @include flex_box_cutom(space-between, flex-start, 10px);
     flex-wrap: wrap;
     margin-top: 10px;
 

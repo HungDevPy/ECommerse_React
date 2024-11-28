@@ -81,6 +81,15 @@
     }
 
 }
+.isActiveSize{
+    border: 1px solid $primary_color !important;
+}
+.btnClear{
+    font-size: 12px;
+    text-align: center;
+    margin: 10px 0;
+    cursor: pointer;
+}
 .textCenter{
     text-align: center;
 }

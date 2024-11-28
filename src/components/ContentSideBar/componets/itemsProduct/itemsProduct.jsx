@@ -1,19 +1,21 @@
 import styles from './styles.module.scss';
 import { IoCloseOutline } from 'react-icons/io5';
 
-function ItemsProduct() {
+function ItemsProduct({
+    src,nameProduct,priceProduct,skuProduct,sizeProduct,quantityProduct
+}) {
     const { container, boxContent, title, price,boxClose,size } = styles;
     return (
         <div className={container}>
             <img
-                src='https://xstore.8theme.com/elementor2/marseille04/wp-content/uploads/sites/2/2022/12/Image-1.1-min.jpg'
+                src={src}
                 alt=''
             />
             <div className={boxContent}>
-                <div className={title}>10K Yellow Gold</div>
-                <div className={size}>Size:M</div>
-                <div className={price}>$99.99</div>
-                <div className={price}>SKU:12345</div>
+                <div className={title}>{nameProduct}</div>
+                <div className={size}>Size:{sizeProduct}</div>
+                <div className={price}>{quantityProduct} x ${priceProduct}</div>
+                <div className={price}>SKU:{skuProduct}</div>
             </div>
             <div className={boxClose}>
                 <IoCloseOutline style={{fontSize:'25px',color:'#a2a2a2'}} />

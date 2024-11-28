@@ -23,7 +23,31 @@ export const OurShopProvider = ({ children }) => {
     const [show, setShow] = useState('8');
     const [isShow, setIsShow] = useState(true);
     const [products, setProducts] = useState([]);
-
+    const [isLoading, setIsLoading] = useState(false);
+    const [isLoadMore, setIsLoadMore] = useState(false);
+    const [page, setPage] = useState(1);
+    const [total, setTotal] = useState(0);
+    const handleLoadMore = () => {
+        const query = {
+            sortType: sort,
+            page: +page + 1,
+            limit: show,
+        };
+        setIsLoadMore(true)
+        getProductOutShop(query).then(res =>{
+            setTotal(res.total);
+            setPage(+res.page);
+            setProducts((prev) =>{
+                return [...prev, ...res.contents];
+            });
+            setIsLoading(false);
+            setIsLoadMore(false);
+        }).catch(err =>{
+            console.log(err);
+            setIsLoading(false);
+            setIsLoadMore(false);
+        });
+    };
     const value = {
         sortOptions,
         showOptions,
@@ -32,19 +56,25 @@ export const OurShopProvider = ({ children }) => {
         setIsShow,
         isShow,
         products,
+        isLoading,
+        handleLoadMore,
+        total,
+        isLoadMore,
     };
-
     useEffect(() => {
         const query = {
             sortType: sort,
             page: 1,
             limit: show,
         };
+        setIsLoading(true);
         getProductOutShop(query).then(res =>{
-            console.log(res);
+            setTotal(res.total);
             setProducts(res.contents);
+            setIsLoading(false);
         }).catch(err =>{
             console.log(err);
+            setIsLoading(false);
         });
     }, [sort, show]);
 
