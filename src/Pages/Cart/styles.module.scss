@@ -1,0 +1,59 @@
+@import "@styles/variables.module.scss";
+@import "@styles/mixins.module.scss";
+
+.container{
+    padding-top: 83px;
+}
+.containerSteps{
+   @include flex_box_cutom(center, center, 40px);
+   flex-direction: column;
+    background-color: #fafafa;
+    padding: 35px 0;
+
+    .titleSteps{
+        text-align: center;
+        font-size: 16px;
+        color: $four_color;
+        font-weight: 400;
+    }
+}
+.contentSteps{
+
+    @include flex_box_cutom(center, center, 0px);
+    
+    .line{
+        min-width: 120px;
+        height: 1px;
+        background-color: #e1e1e1;
+        margin: 0 20px
+    }
+    .stepper{
+        @include flex_box_cutom(center, center, 10px);
+        text-transform: uppercase;
+        .numberStep{
+            @include flex_box_cutom(center, center, 10px);
+            background-color: #333;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            color: $white_color;
+
+        }
+        .isDisableNumber{
+            color: #8888;
+            background-color: transparent;
+            border: 1px solid #e1e1e1;
+        }
+        .textStep{
+            color:  $four_color;
+            font-size: 21px;
+            font-weight: 300;
+        }
+        .isDisableText{
+            color: $temp_color;
+        }
+        
+
+    }
+}
+

@@ -1,4 +1,5 @@
 @import "@styles/mixins.module.scss";
+@import "@styles/variables.module.scss";
 
 .container{
     @include flex_box_cutom(space-between,unset,0px);
@@ -6,7 +7,9 @@
     padding: 30px ;
     height: 95vh;
     .boxContent{
-
+        @include flex_box_cutom(space-between, unset, 0px);
+        flex-direction: column;
+        flex-grow: 1;
     }
     .boxBtn{
         @include flex_box_cutom(center,center,10px);
@@ -16,4 +19,34 @@
         @include flex_box_cutom(space-between,center,0px);
         color: #989797e9;
     }
+    .containerListProductCart{
+        position: relative;
+        .overlayLoading{
+            @include flex_box_cutom(center , center, 0px);
+    
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255 ,255 ,255,0.5);
+        }
+    }
+    .boxEmpty{
+        text-align: center;
+        font-size: 14px;
+        color: $four_color;
+        margin-top: 30px;
+    }
+    .textEmpty{
+        margin-bottom: 20px;
+    }
+    .boxBtnEmpty{
+       width: 162px;
+       margin: 20px auto; 
+    }
+
+}
+.isEmpty{
+    justify-content: unset;
 }
