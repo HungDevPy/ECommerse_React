@@ -30,7 +30,7 @@ export const SideBarProvider = ({ children }) => {
         handleGetListProductCart(userId,'cart');
     }, []);
     return (
-        <SideBarContext.Provider value={{ isOpen, setIsOpen,type, setType,handleGetListProductCart,listProductCart,isLoading }}>
+        <SideBarContext.Provider value={{ isOpen, setIsOpen,type, setType,handleGetListProductCart,listProductCart,isLoading,setisLoading,userId }}>
             {children}  
         </SideBarContext.Provider>
     );

@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "../../../.."
+		},
+		{
+			"path": "D:/git/ecommerse-reactjs"
 		}
 	],
 	"settings": {}

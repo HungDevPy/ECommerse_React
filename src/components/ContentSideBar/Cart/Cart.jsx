@@ -9,12 +9,16 @@ import LoadingTextCommon from '@components/LoadingTextCommon/LoadingTextCommon';
 import cls from 'classnames';
 import { useNavigate } from 'react-router-dom';
 function Cart() {
-    const { container, boxContent, boxBtn, boxSub, containerListProductCart, overlayLoading,isEmpty,boxEmpty,textEmpty,boxBtnEmpty } = styles;
+    const { container, boxContent, boxBtn, boxSub,isEmpty,boxEmpty,textEmpty,boxBtnEmpty } = styles;
     const { listProductCart, isLoading,setIsOpen} = useContext(SideBarContext);
     const navigate = useNavigate();
 
     const handleNavigateToShop=()=>{
         navigate('/shop')
+        setIsOpen(false);
+    };
+    const handleNavigateToCart=()=>{
+        navigate('/cart')
         setIsOpen(false);
     };
     const subTotal = listProductCart.reduce((acc, item) => {
@@ -46,7 +50,7 @@ function Cart() {
                                     <p>${subTotal}</p>
                                 </div>
                                 <div className={boxBtn}>
-                                    <MyButton content={'VIEW CART'} style={{ width: '100%' }} />
+                                    <MyButton content={'VIEW CART'} style={{ width: '100%' }} onClick={handleNavigateToCart} />
                                     <MyButton
                                         content={'CHECKOUT'}
                                         isPrimary={false}
