@@ -11,7 +11,7 @@ export const SideBarProvider = ({ children }) => {
     const [listProductCart, setListProductCart] = useState([]);
     const [isLoading, setisLoading] = useState(false)
     const userId = Cookies.get('userId');
-
+    const [detailProduct, setdetailProduct] = useState(null);
 
     const handleGetListProductCart = (userId,type) => {
         if(userId &&  type === 'cart'){
@@ -30,7 +30,7 @@ export const SideBarProvider = ({ children }) => {
         handleGetListProductCart(userId,'cart');
     }, []);
     return (
-        <SideBarContext.Provider value={{ isOpen, setIsOpen,type, setType,handleGetListProductCart,listProductCart,isLoading,setisLoading,userId }}>
+        <SideBarContext.Provider value={{ isOpen, setIsOpen,type, setType,handleGetListProductCart,listProductCart,isLoading,setisLoading,userId,detailProduct,setdetailProduct }}>
             {children}  
         </SideBarContext.Provider>
     );

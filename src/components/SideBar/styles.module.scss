@@ -26,9 +26,14 @@
         height: 100%;
         background-color: #ffff;
         z-index: 1001;
-
+        overflow-y: scroll; /* Kích hoạt cuộn dọc */
+        scrollbar-width: none; /* Ẩn thanh cuộn trong Firefox */
+        -ms-overflow-style: none;
         transform: translateX(370px);
         transition: all 0.3s ease;
+        &::-webkit-scrollbar {
+            display: none; /* Ẩn thanh cuộn trong Chrome, Safari */
+        }
     }
     .slideSideBar{
         transform: translateX(0);

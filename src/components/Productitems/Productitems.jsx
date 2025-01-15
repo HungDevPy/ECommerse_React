@@ -1,8 +1,5 @@
 import MyButton from '@components/Button/Button';
 import style from './styles.module.scss';
-import cart from '@icons/svg/cart.svg';
-import heart from '@icons/svg/heart.svg';
-import reload from '@icons/svg/reload.svg';
 import cls from 'classnames';
 import { useContext, useEffect, useState } from 'react';
 import { OurShopContext } from '@contexts/ourshopProvider';
@@ -11,13 +8,17 @@ import { SideBarContext } from '@contexts/SideBarprovider';
 import { ToastContext } from '@contexts/ToastProvider';
 import { addProductToCart } from '@/apis/cartService';
 import LoadingTextCommon from '@components/LoadingTextCommon/LoadingTextCommon';
+import { HiOutlineShoppingBag } from "react-icons/hi2";
+import { CiHeart } from "react-icons/ci";
+import { TfiReload } from "react-icons/tfi";
+import { FiEye } from "react-icons/fi";
 
 function Productitems({ src, preSrc, name, price, detail, isHomepage = true }) {
     const ourShopStore = useContext(OurShopContext);
     const [isShow, setIsShow] = useState(ourShopStore?.isShow);
     const [sizeChose, setSizeChose] = useState('');
     const userId = Cookies.get('userId');
-    const { setIsOpen, setType, handleGetListProductCart } = useContext(SideBarContext);
+    const { setIsOpen, setType, handleGetListProductCart, setdetailProduct } = useContext(SideBarContext);
     const { toast } = useContext(ToastContext);
     const [isLoading, setisLoading] = useState(false);
     const { boxItems, showImgWhenHover, showImgButton,
@@ -65,6 +66,11 @@ function Productitems({ src, preSrc, name, price, detail, isHomepage = true }) {
     const handleClearSize = () => {
         setSizeChose('');
     };
+    const handleShowDetailProduct = () => {
+        setIsOpen(true);
+        setType('detail');
+        setdetailProduct(detail);
+    };
     useEffect(() => {
         if (isHomepage) {
             setIsShow(true);
@@ -87,16 +93,18 @@ function Productitems({ src, preSrc, name, price, detail, isHomepage = true }) {
                 />
                 <div className={showImgButton}>
                     <div className={boxIcon}>
-                        <img src={cart} alt='' />
+                        <HiOutlineShoppingBag/>
                     </div>
                     <div className={boxIcon}>
-                        <img src={heart} alt='' />
+                        <CiHeart style={{
+                            fontSize: '20px',
+                        }}/>
                     </div>
                     <div className={boxIcon}>
-                        <img src={reload} alt='' />
+                        <TfiReload/>
                     </div>
-                    <div className={boxIcon}>
-                        <img src={cart} alt='' />
+                    <div className={boxIcon} onClick={handleShowDetailProduct}>
+                    <FiEye />
                     </div>
                 </div>
             </div>

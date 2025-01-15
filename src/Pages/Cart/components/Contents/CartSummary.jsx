@@ -24,11 +24,11 @@ function CartSummary() {
             <div className={title}>Cart totals</div>
             <div className={cls(boxTotal,subTotal)}>
                 <div>Subtotal</div>
-                <div className={price}>{totalCart}</div>
+                <div className={price}>{totalCart.toFixed(2)}</div>
             </div>
             <div className={cls(boxTotal,total)}>
                 <div>Total</div>
-                <div>{totalCart}</div>
+                <div>{totalCart.toFixed(2)}</div>
             </div>
             <MyButton content={"Proceed to checkout"} style={{width:"100%"}} />
             <div className={space}></div>
